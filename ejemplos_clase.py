@@ -4,7 +4,7 @@ Archivos [Python]
 Ejemplos de clase
 ---------------------------
 Autor: Inove Coding School
-Version: 1.3
+Version: 1.2
 
 Descripcion:
 Programa creado para mostrar ejemplos prácticos de los visto durante la clase
