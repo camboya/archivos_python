@@ -4,7 +4,7 @@ Archivos [Python]
 Ejercicios de clase
 ---------------------------
 Autor: Inove Coding School
-Version: 1.2
+Version: 1.23
 
 Descripcion:
 Programa creado para poner a prueba los conocimientos
@@ -21,7 +21,7 @@ import re
 
 def ej1():
     # Ejercicios con archivos txt
-    cantidad_lineas = 0
+    
 
     '''
     Realizar un prorgrama que cuenta la cantidad de líneas
@@ -36,10 +36,25 @@ def ej1():
     de líneas encontradas.
     '''
 
+    cantidad_lineas = 0
+    archivo_nombre = open ("notas.txt", "r")
+    fi = archivo_nombre
+    line = fi.readline()
+    print(len(fi.readlines()))
+    archivo_nombre.close()
+
+    contar_lineas = 0
+    with open("notas.txt") as fi:
+       
+       for line in fi:
+          contar_lineas += 1
+
+    #return contar_lineas
+
 
 def ej2():
     # Ejercicios con archivos txt
-    cantidad_lineas = 0
+    
     '''
     Copy paste!!
     Deberá abrir dos archivo txt, uno para lectura (fi) y otro
@@ -60,6 +75,20 @@ def ej2():
 
     # Recuerde cerrar los archivos al final ;)
 
+    cantidad_lineas = 0
+
+    fi = open('notas.txt', 'r')
+    fo = open('nuevas_notas.txt','w')
+    for line in fi:
+        fo.write(line)
+
+
+    fi.close()
+
+    fo.close()
+
+
+
 
 def ej3():
     # Ejercicios con archivos CSV
@@ -72,10 +101,19 @@ def ej3():
     Al finalizar el proceso, imprima en pantalla los resultados.
     '''
 
+   
+    with open('propiedades.csv','r') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            print('2 amb: {0}, 3 amb: {1}'.format(row[0], row[1]))
+
+
+
+
 
 def ej4():
     # Ejercicios con diccionarios
-    inventario = {'manzanas': 6}
+    
 
     '''
     Realice un programa que pida por consola
@@ -94,6 +132,54 @@ def ej4():
     # En el bucle realizar:
     # Generar y completar el diccionario con las frutas y cantidades
     # ingresadas por consola hasta ingresar la palabra "FIN"
+
+    inventario = {'frutas':'cantidad'}
+    inventario = {'verduras':'cantidad'}
+    inventario = {'manzanas': 6}
+
+    stock_inventario = True
+
+    while stock_inventario:
+
+        nombre = input('\n nombre de fruta')
+        cantidad = int(input('\n cantidad de fruta'))
+        inventario[nombre]= cantidad
+
+        nombre = input('\n nombre de fruta')
+        cantidad = int(input('\n cantidad de fruta'))
+        inventario[nombre]= cantidad
+
+        nombre = input('\n nombre de verdura')
+        cantidad = int(input('\n cantidad de verdura'))
+        inventario[nombre]= cantidad
+
+        nombre = input('\n nombre de verdura')
+        cantidad = int(input('\n cantidad de verdura'))
+        inventario[nombre]= cantidad
+
+        x = input("Ingrese una palabra ('Fin' para terminar): ")
+        if x == 'Fin':
+            break
+
+        print(inventario)
+
+        
+
+
+
+    
+
+
+   
+
+   
+       
+
+    
+    
+
+
+
 
 
 def ej5():
@@ -138,8 +224,8 @@ def ej5():
 
 if __name__ == '__main__':
     print("Bienvenidos a otra clase de Inove con Python")
-    ej1()
+    #ej1()
     #ej2()
     #ej3()
     #ej4()
-    #ej5()
+    ej5()
